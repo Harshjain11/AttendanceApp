@@ -1,32 +1,34 @@
 import {Link} from 'react-router-dom';
 
 
-export default function Admin(){
-    let signInData = {harsh:[{
-        Date:"6/6/24",Time:"5:56:44",
-    }]}
+export default function Admin({userData,signInData,signOutData}){
 
-    let signOutData = {harsh:[{
-        Date:"6/6/24",Time:"6:00:00",
-    }]}
+    console.log(userData);
+    // let signInData = {harsh:[{
+    //     Date:"6/6/24",Time:"5:56:44",
+    // }]}
 
-    let userData = {
-        harsh:{
-            password:"harsh",
-            email:"harsh@",
-            mobile:999999999,
-        },
-        mehul:{
-            password:"mehul",
-            email:"mehul@",
-            mobile:8888888888,
-        },
-        khushboo:{
-            password:"khushboo",
-            email:"khushboo@",
-            mobile:7777777777,
-        }
-    };
+    // let signOutData = {harsh:[{
+    //     Date:"6/6/24",Time:"6:00:00",
+    // }]}
+
+    // let userData = {
+    //     harsh:{
+    //         password:"harsh",
+    //         email:"harsh@",
+    //         mobile:999999999,
+    //     },
+    //     mehul:{
+    //         password:"mehul",
+    //         email:"mehul@",
+    //         mobile:8888888888,
+    //     },
+    //     khushboo:{
+    //         password:"khushboo",
+    //         email:"khushboo@",
+    //         mobile:7777777777,
+    //     }
+    // };
  let clicked = true;
 
     let showAllDetails = (userData,showSpecificDetails,clicked,signInData,signOutData) => {
@@ -75,6 +77,11 @@ export default function Admin(){
         // console.log(signInData); 
         let realdata =data;
         // console.log(realdata)
+        if(!signInData[realdata]) {
+            console.log("the specific user has not still signed in");
+            return;
+        }
+
         let inData = signInData[realdata];
         
         let outData = signOutData[realdata];
